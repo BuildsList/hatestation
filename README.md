@@ -1,7 +1,4 @@
 # HateStation 2.0
-
-"We're breaking the conditioning!"
-
 **Website:** https://8ch.net/v/ <BR>
 **Code:** https://gitgud.io/hatestation-developers/hatestation <BR>
 
