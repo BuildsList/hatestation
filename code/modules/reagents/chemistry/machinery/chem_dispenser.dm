@@ -8,6 +8,7 @@
 	use_power = 1
 	idle_power_usage = 40
 	interact_offline = 1
+	var/recharging_power_usage = 1500  // This thing uses up alot of power (this is still low as shit for creating reagents from thin air)
 	var/energy = 100
 	var/max_energy = 100
 	var/amount = 30

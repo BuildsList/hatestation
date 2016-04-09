@@ -228,6 +228,40 @@ Note: Once everything is added to the public areas, will add m_amt and g_amt to 
 to destroy them and players will be able to make replacements.
 */
 
+/obj/item/weapon/circuitboard/chem_dispenser
+	name = "circuit board (Portable Chem Dispenser)"
+	desc = "Use screwdriver to switch between dispenser modes."
+	build_path = /obj/machinery/chem_dispenser/constructable
+	board_type = "machine"
+	var/finish_type = "chemical dispenser"
+	origin_tech = "materials=4;engineering=4;programming=4;plasmatech=3;biotech=3"
+	req_components = list(
+							/obj/item/weapon/stock_parts/matter_bin = 2,
+							/obj/item/weapon/stock_parts/capacitor = 1,
+							/obj/item/weapon/stock_parts/manipulator = 1,
+							/obj/item/weapon/stock_parts/console_screen = 1,
+							/obj/item/weapon/stock_parts/cell = 1)
+
+/obj/item/weapon/circuitboard/chem_dispenser/attackby(obj/item/I as obj, mob/user as mob, params)
+	if(istype(I,/obj/item/weapon/screwdriver))
+		var/board_choice = input("Current mode is set to: [finish_type]","Circuitboard interface") in list("Advanced Chem Synthesizer","Chemical Dispenser", "Booze Dispenser", "Soda Dispenser", "Cancel")
+		switch( board_choice )
+			if("Advanced Chem Synthesizer")
+				name = "circuit board (Advanced Chem Synthesizer)"
+				build_path = /obj/machinery/chem_dispenser/constructable/synth
+				finish_type = "advanced chem synthesizer"
+				return
+			if("Chemical Dispenser")
+				name = "circuit board (Portable Chem Dispenser)"
+				build_path = /obj/machinery/chem_dispenser/constructable
+				finish_type = "chemical dispenser"
+				return
+			if("Cancel")
+				return
+			else
+				user << "[board_choice]: Invalid input, try again"
+	return
+
 /obj/item/weapon/circuitboard/vendor
 	name = "circuit board (Booze-O-Mat Vendor)"
 	build_path = /obj/machinery/vending/boozeomat

@@ -802,6 +802,22 @@
 		. = 1
 	..()
 
+/datum/reagent/medicine/hyperzine
+	name = "Hyperzine"
+	id = "hyperzine"
+	synth_cost = 3
+	description = "Hyperzine is a highly effective, long lasting, muscle stimulant."
+	color = "#C8A5DC" // rgb: 200, 165, 220
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 60
+
+/datum/reagent/medicine/hyperzine/on_mob_life(var/mob/living/M as mob)
+	if(M.stat != DEAD)
+		if(prob(5))
+			M.emote(pick("twitch","blink_r","shiver"))
+		M.status_flags |= GOTTAGOFAST
+	..()
+
 /datum/reagent/medicine/stimulants/longterm
 	name = "Stimulants"
 	id = "stimulants_longterm"

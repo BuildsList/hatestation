@@ -35,6 +35,13 @@
 	required_reagents = list("sugar" = 1, "lithium" = 1, "water" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/hyperzine
+	name = "Hyperzine"
+	id = "hyperzine"
+	result = "hyperzine"
+	required_reagents = list("sugar" = 1, "phosphorus" = 1, "sulfur" = 1,)
+	result_amount = 3
+
 /datum/chemical_reaction/charcoal
 	name = "Charcoal"
 	id = "charcoal"
