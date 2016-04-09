@@ -85,7 +85,7 @@
 /obj/machinery/chem_dispenser/constructable/synth/RefreshParts()
 	var/time = 0
 	var/temp_energy = 0
-	var/i = 0
+
 	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
 		temp_energy += M.rating
 	temp_energy--
@@ -95,7 +95,7 @@
 	for(var/obj/item/weapon/stock_parts/cell/P in component_parts)
 		time += round(P.maxcharge, 10000) / 10000
 	recharge_delay /= time/2         //delay between recharges, double the usual time on lowest 50% less than usual on highest
-	i = 0
+
 /obj/machinery/chem_dispenser/constructable/synth/Topic(href, href_list)
 	if(stat & (BROKEN))
 		return 0 // don't update UIs attached to this object
