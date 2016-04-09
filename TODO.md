@@ -6,4 +6,6 @@
 * [ ] Port Goonstation drug effects
 * [ ] Restore HateStation changes to Metastation Z1
 * [ ] Restore colonization resources on derelict and mining asteroid
+* [ ] Remove "byond membership" requirements
+* [ ] Re-add fun
 * [ ] Restore Clown Planet
