@@ -15,6 +15,7 @@
 // BEGIN_INCLUDE
 #include "_maps\__MAP_DEFINES.dm"
 #include "_maps\metastation.dm"
+#include "_maps\map_files\MetaStation\MetaStation.v41I.dmm"
 #include "code\_compile_options.dm"
 #include "code\hub.dm"
 #include "code\world.dm"
@@ -663,6 +664,7 @@
 #include "code\game\objects\items\weapons\storage\book.dm"
 #include "code\game\objects\items\weapons\storage\boxes.dm"
 #include "code\game\objects\items\weapons\storage\briefcase.dm"
+#include "code\game\objects\items\weapons\storage\daki.dm"
 #include "code\game\objects\items\weapons\storage\fancy.dm"
 #include "code\game\objects\items\weapons\storage\firstaid.dm"
 #include "code\game\objects\items\weapons\storage\internal.dm"
