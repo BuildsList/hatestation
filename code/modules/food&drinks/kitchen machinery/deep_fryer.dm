@@ -6,7 +6,7 @@
 
 /obj/machinery/cooking/deepfryer
 	name = "deep fryer"
-	desc = "A large Deep fryer. You feel fat just from looking at it."
+	desc = "A large deep fryer. Regular use may cause obesity."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "fryer_off"
 	var/icon_state_on = "fryer_on"
