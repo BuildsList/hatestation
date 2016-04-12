@@ -414,7 +414,7 @@ proc/CallMaterialName(ID)
 						updateUsrDialog()
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
-        var/coeff = linked_imprinter.efficiency_coef
+	    var/coeff = linked_imprinter.efficiency_coef
 		var/g2g = 1
 		if(linked_imprinter)
 			var/datum/design/being_built = files.known_designs[href_list["imprint"]]
