@@ -414,7 +414,7 @@ proc/CallMaterialName(ID)
 						updateUsrDialog()
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
-	    var/coeff = linked_imprinter.efficiency_coef
+		var/coeff = linked_imprinter.efficiency_coeff
 		var/g2g = 1
 		if(linked_imprinter)
 			var/datum/design/being_built = files.known_designs[href_list["imprint"]]
@@ -812,7 +812,7 @@ proc/CallMaterialName(ID)
 			dat += "<div class='statusDisplay'><h3>Browsing [selected_category]:</h3><BR>"
 			dat += "<B>Material Amount:</B> [linked_lathe.materials.total_amount] / [linked_lathe.materials.max_amount]<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] / [linked_lathe.reagents.maximum_volume]<HR>"
-            var/coeff = linked_lathe.efficiency_coeff
+			var/coeff = linked_lathe.efficiency_coeff
 			for(var/v in files.known_designs)
 				var/datum/design/D = files.known_designs[v]
 				if(!(selected_category in D.category)|| !(D.build_type & PROTOLATHE))
@@ -856,7 +856,7 @@ proc/CallMaterialName(ID)
 			dat += "<div class='statusDisplay'><h3>Search results:</h3><BR>"
 			dat += "<B>Material Amount:</B> [linked_lathe.materials.total_amount] / [linked_lathe.materials.max_amount]<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] / [linked_lathe.reagents.maximum_volume]<HR>"
-            var/coeff = linked_lathe.efficiency_coeff
+			var/coeff = linked_lathe.efficiency_coeff
 			for(var/datum/design/D in matching_designs)
 				var/temp_material
 				var/c = 50
@@ -981,7 +981,7 @@ proc/CallMaterialName(ID)
 			dat += "<div class='statusDisplay'><h3>Browsing [selected_category]:</h3><BR>"
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()]<BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
-            var/coeff = linked_imprinter.efficiency_coeff
+			var/coeff = linked_imprinter.efficiency_coeff
 			for(var/v in files.known_designs)
 				var/datum/design/D = files.known_designs[v]
 				if(!(selected_category in D.category) || !(D.build_type & IMPRINTER))
@@ -1007,7 +1007,7 @@ proc/CallMaterialName(ID)
 			dat += "<div class='statusDisplay'><h3>Search results:</h3><BR>"
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()]<BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
-            var/coeff = linked_imprinter.efficiency_coeff
+			var/coeff = linked_imprinter.efficiency_coeff
 			for(var/datum/design/D in matching_designs)
 				var/temp_materials
 				var/check_materials = 1
