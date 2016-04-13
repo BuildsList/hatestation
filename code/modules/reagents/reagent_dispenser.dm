@@ -40,8 +40,8 @@
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
-	name = "watertank"
-	desc = "A watertank"
+	name = "water tank"
+	desc = "A water tank."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
 
@@ -73,8 +73,8 @@
 		qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank
-	name = "fueltank"
-	desc = "A fueltank"
+	name = "fuel tank"
+	desc = "A fuel tank."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 
@@ -136,8 +136,8 @@
 
 
 /obj/structure/reagent_dispensers/water_cooler
-	name = "Water-Cooler"
-	desc = "A machine that dispenses water to drink"
+	name = "water cooler"
+	desc = "A machine that dispenses water to drink."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "water_cooler"
 	anchored = 1
@@ -171,7 +171,7 @@
 		..()
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
-	desc = "A beer keg"
+	desc = "A beer keg."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "beertankTEMP"
 
@@ -192,4 +192,4 @@
 
 /obj/structure/reagent_dispensers/virusfood/New()
 	..()
-	reagents.add_reagent("virusfood",1000)
+	reagents.add_reagent("virusfood", 1000)
