@@ -109,6 +109,19 @@
 	..() //extend the zap
 	boom()
 
+
+/obj/structure/reagent_dispensers/mutagentank
+	name = "Unstable Mutagen Dispensor"
+	desc = "A dispenser of Unstable Mutagen."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "virusfoodtank"
+	anchored = 1
+
+/obj/structure/reagent_dispensers/mutagentank/New()
+	..()
+	reagents.add_reagent("mutagen",1000)
+
+
 /obj/structure/reagent_dispensers/peppertank
 	name = "Pepper Spray Refiller"
 	desc = "Refill pepper spray canisters."
@@ -132,7 +145,7 @@
 
 /obj/structure/reagent_dispensers/water_cooler/New()
 	..()
-	reagents.add_reagent("water",500)
+	reagents.add_reagent("water",1000)
 
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(mob/living/carbon/human/user)
 	if((!istype(user)) || (user.stat))
@@ -179,4 +192,4 @@
 
 /obj/structure/reagent_dispensers/virusfood/New()
 	..()
-	reagents.add_reagent("virusfood", 1000)
+	reagents.add_reagent("virusfood",1000)
