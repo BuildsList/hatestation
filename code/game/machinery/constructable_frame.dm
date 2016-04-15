@@ -487,6 +487,14 @@ to destroy them and players will be able to make replacements.
 							/obj/item/weapon/stock_parts/matter_bin = 1,
 							/obj/item/weapon/stock_parts/manipulator = 1)
 
+/obj/item/weapon/circuitboard/extraction_point
+	name = "circuit board (Balloon Extraction Point)"
+	build_path = /obj/machinery/extraction_point
+	board_type = "machine"
+	origin_tech = "programming=4"
+	req_components = list(
+							/obj/item/weapon/stock_parts/scanning_module = 1)
+
 /obj/item/weapon/circuitboard/tesla_coil
 	name = "circuit board (Tesla Coil)"
 	build_path = /obj/machinery/power/tesla_coil

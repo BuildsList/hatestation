@@ -177,6 +177,16 @@
 	build_path = /obj/item/weaponcrafting/reciever
 	category = list("Weapons")
 
+/datum/design/extraction_pack
+	name = "Balloon Extraction Pack"
+	desc = "A balloon extraction pack."
+	id = "extraction_pack"
+	req_tech = list("engineering" = 6, "materials" = 7)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 4000, MAT_GLASS = 5000)
+	build_path = /obj/item/weapon/extraction_pack
+	category = list("Weapons")
+
 //WT550 Mags
 
 /datum/design/mag_oldsmg
