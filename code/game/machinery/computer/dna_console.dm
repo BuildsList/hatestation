@@ -409,19 +409,16 @@
 						if("ui")
 							if(buffer_slot["UI"])
 								I = new /obj/item/weapon/dnainjector(loc)
-								I.fields = list("UI"=buffer_slot["UI"])
 								if(connected)
 									I.damage_coeff = connected.damage_coeff
 						if("ue")
 							if(buffer_slot["name"] && buffer_slot["UE"] && buffer_slot["blood_type"])
 								I = new /obj/item/weapon/dnainjector(loc)
-								I.fields = list("name"=buffer_slot["name"], "UE"=buffer_slot["UE"], "blood_type"=buffer_slot["blood_type"])
 								if(connected)
 									I.damage_coeff  = connected.damage_coeff
 						if("mixed")
 							if(buffer_slot["UI"] && buffer_slot["name"] && buffer_slot["UE"] && buffer_slot["blood_type"])
 								I = new /obj/item/weapon/dnainjector(loc)
-								I.fields = list("UI"=buffer_slot["UI"],"name"=buffer_slot["name"], "UE"=buffer_slot["UE"], "blood_type"=buffer_slot["blood_type"])
 								if(connected)
 									I.damage_coeff = connected.damage_coeff
 					if(I)
