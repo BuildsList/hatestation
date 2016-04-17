@@ -78,7 +78,7 @@ var/list/total_extraction_beacons = list()
 				L.sleeping = 0
 			sleep(30)
 			var/list/flooring_near_beacon = list()
-			for(var/turf/simulated/floor/floor in orange(1, beacon))
+			for(var/turf/open/floor in orange(1, beacon))
 				flooring_near_beacon += floor
 			holder_obj.loc = pick(flooring_near_beacon)
 			animate(holder_obj, pixel_z = 10, time = 50)
