@@ -18,6 +18,7 @@
 	materials = list(MAT_METAL=500)
 	origin_tech = "materials=1"
 	breakouttime = 600 //Deciseconds = 60s = 1 minute
+	cuffingtime = 30	//deciseconds to apply this cuff on someone
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
 	var/trashtype = null //for disposable cuffs
 
@@ -34,7 +35,7 @@
 							"<span class='userdanger'>[user] is trying to put [src.name] on [C]!</span>")
 
 		playsound(loc, cuffsound, 30, 1, -2)
-		if(do_mob(user, C, 30))
+		if(do_mob(user, C, cuffingtime))
 			apply_cuffs(C,user)
 			user << "<span class='notice'>You handcuff [C].</span>"
 			if(istype(src, /obj/item/weapon/restraints/handcuffs/cable))
@@ -72,6 +73,7 @@
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cuff_red"
 	item_state = "coil_red"
+	cuffingtime = 50
 	materials = list(MAT_METAL=150, MAT_GLASS=75)
 	breakouttime = 300 //Deciseconds = 30s
 	cuffsound = 'sound/weapons/cablecuff.ogg'
@@ -167,7 +169,7 @@
 			playsound(loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
 			C.visible_message("<span class='danger'>[user] is trying to put zipties on [C]!</span>", \
 								"<span class='userdanger'>[user] is trying to put zipties on [C]!</span>")
-			if(do_mob(user, C, 30))
+			if(do_mob(user, C, cuffingtime))
 				if(!C.handcuffed)
 					C.handcuffed = new /obj/item/weapon/restraints/handcuffs/cable/zipties/used(C)
 					C.update_handcuffed()
@@ -182,6 +184,7 @@
 	icon_state = "cuff_white"
 	materials = list()
 	breakouttime = 450 //Deciseconds = 45s
+	cuffingtime = 25
 	trashtype = /obj/item/weapon/restraints/handcuffs/cable/zipties/used
 
 /obj/item/weapon/restraints/handcuffs/cable/zipties/used
