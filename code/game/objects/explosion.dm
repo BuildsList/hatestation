@@ -128,7 +128,7 @@
 		//------- TURF FIRES -------
 
 		if(T)
-			if(flame_dist && prob(40) && !istype(T, /turf/open/space) && !T.density)
+			if(flame_dist && !istype(T, /turf/open/space) && !T.density)	//there used to be a proc(40) here. Re-add it if it gets too much.
 				PoolOrNew(/obj/effect/hotspot, T) //Mostly for ambience!
 			if(dist > 0)
 				T.ex_act(dist)

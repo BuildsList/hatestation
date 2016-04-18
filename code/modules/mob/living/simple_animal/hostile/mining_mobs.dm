@@ -429,7 +429,7 @@
 /obj/effect/goliath_tentacle/proc/Trip()
 	for(var/mob/living/M in src.loc)
 		visible_message("<span class='danger'>The [src.name] grabs hold of [M.name]!</span>")
-		M.Stun(5)
+		M.Stun(2)
 		M.adjustBruteLoss(rand(10,15))
 		latched = 1
 	if(!latched)

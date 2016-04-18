@@ -90,8 +90,8 @@
 		log_game("[key_name(Proj.firer)] triggered a fueltank explosion.")
 		boom()
 
-/obj/structure/reagent_dispensers/fueltank/proc/boom()
-	explosion(src.loc,0,1,5,7,10, flame_range = 5)
+/obj/structure/reagent_dispensers/fueltank/proc/boom()	//please don't add devastation radious, it ruins the warm fire.
+	explosion(src.loc,0,3,7,10,15, flame_range = 7)
 	if(src)
 		qdel(src)
 

@@ -986,7 +986,7 @@ Sorry Giacom. Please don't be mad :(
 		var/total_health = (health - staminaloss)
 		if(total_health <= config.health_threshold_crit && !stat)
 			src << "<span class='notice'>You're too exhausted to keep going...</span>"
-			Weaken(5)
+			Weaken(50)	//about 15 seconds
 			setStaminaLoss(health - 2)
 	update_health_hud()
 
