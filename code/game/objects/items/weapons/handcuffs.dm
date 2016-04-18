@@ -18,7 +18,7 @@
 	materials = list(MAT_METAL=500)
 	origin_tech = "materials=1"
 	breakouttime = 600 //Deciseconds = 60s = 1 minute
-	cuffingtime = 30	//deciseconds to apply this cuff on someone
+	var/cuffingtime = 30	//deciseconds to apply this cuff on someone
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
 	var/trashtype = null //for disposable cuffs
 
