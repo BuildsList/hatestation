@@ -42,8 +42,3 @@
 			playsound(vent.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 			smoke.start()
 			qdel(R)
-
-			var/cockroaches = prob(33) ? 3 : 0
-			while(cockroaches)
-				new /mob/living/simple_animal/cockroach(get_turf(vent))
-				cockroaches--

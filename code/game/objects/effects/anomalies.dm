@@ -172,7 +172,7 @@
 	..()
 	var/turf/open/T = get_turf(src)
 	if(istype(T))
-		T.atmos_spawn_air("o2=15;plasma=15;TEMP=1000")
+		T.atmos_spawn_air("plasma=3;TEMP=1000")
 
 /////////////////////
 
