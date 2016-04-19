@@ -28,7 +28,8 @@
 
 /datum/round_event/anomaly/anomaly_pyro/end()
 	if(newAnomaly.loc)
-		explosion(get_turf(newAnomaly), -1,0,3, flame_range = 4)
+		var/turf/simulated/T = get_turf(newAnomaly)
+		explosion(T, -1,0,3, flame_range = 4)
 		var/mob/living/simple_animal/slime/S = new/mob/living/simple_animal/slime(T)
 		S.colour = pick("red", "orange")
 		qdel(newAnomaly)
