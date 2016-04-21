@@ -36,7 +36,7 @@
 	origin_tech = "bluespace=4"
 	icon_state = "holdingpack"
 	max_w_class = 5
-	max_combined_w_class = 35
+	max_combined_w_class = 70
 	burn_state = FIRE_PROOF
 	var/pshoom = 'sound/items/PSHOOM.ogg'
 	var/alt_sound = 'sound/items/PSHOOM_2.ogg'

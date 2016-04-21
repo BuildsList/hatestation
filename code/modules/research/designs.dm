@@ -232,6 +232,16 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/backpack/holding
 	category = list("Bluespace Designs")
 
+/datum/design/bag_holding/belt
+	name = "Belt of Holding"
+	desc = "A belt that opens into a localized pocket of Blue Space."
+	id = "belt_holding"
+	build_type = PROTOLATHE
+	req_tech = list("bluespace" = 4, "materials" = 6)
+	materials = list(MAT_GOLD = 3000, MAT_DIAMOND = 1500, MAT_URANIUM = 250)
+	build_path = /obj/item/weapon/storage/belt/bluespace
+	category = list("Bluespace Designs")
+
 /datum/design/bluespace_crystal
 	name = "Artificial Bluespace Crystal"
 	desc = "A small blue crystal with mystical properties."
@@ -264,6 +274,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/bag/ore/holding
 	category = list("Bluespace Designs")
 
+/datum/design/plantbag_holding
+	name = "Plant Bag of Holding"
+	desc = "A bag that can hold an infinite amount of products produced by plants"
+	id = "plantbag_holding"
+	req_tech = list("bluespace" = 3, "materials" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_GOLD = 250, MAT_URANIUM = 500) //plant bag, so its cheap
+	build_path = /obj/item/weapon/storage/bag/plants/bspace
+	category = list("Bluespace Designs")
 
 /////////////////////////////////////////
 /////////////////HUDs////////////////////

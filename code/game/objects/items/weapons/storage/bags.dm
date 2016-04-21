@@ -113,6 +113,17 @@
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/weapon/grown)
 	burn_state = FLAMMABLE
 
+/obj/item/weapon/storage/bag/plants/bspace
+	name = "plant bag of holding"
+	desc = "A revolution in convenience, this bag allows for infinite plant storage. It's been outfitted with anti-malfunction safety measures."
+	icon = 'icons/obj/hydroponics/equipment.dmi'
+	icon_state = "psatchel_bspace"
+	storage_slots = INFINITY //the number of plant pieces it can carry.
+	max_combined_w_class = INFINITY //Doesn't matter what this is, so long as it's more or equal to storage_slots * plants.w_class
+	max_w_class = 3
+	w_class = 1
+	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/weapon/grown)
+
 ////////
 
 /obj/item/weapon/storage/bag/plants/portaseeder
