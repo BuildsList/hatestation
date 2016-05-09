@@ -83,7 +83,6 @@
 		/obj/item/clothing/gloves/
 		)
 
-
 /obj/item/weapon/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
@@ -163,6 +162,21 @@
 
 		)
 
+/obj/item/weapon/storage/belt/bluespace
+	name = "Bluepspace belt"
+	desc = "A belt that opens into a localized pocket of Blue Space."
+	icon_state = "bluebelt"
+	item_state = "blueb"
+	origin_tech = "bluespace=4"
+	materials = list(MAT_GOLD=500)
+	storage_slots = 14
+	w_class = 4
+	max_w_class = 4
+	max_combined_w_class = 48
+	cant_hold = list(
+		/obj/item/weapon/storage/belt/bluespace,
+		/obj/item/weapon/storage/backpack/holding
+		)
 
 /obj/item/weapon/storage/belt/soulstone
 	name = "soul stone belt"

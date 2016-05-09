@@ -95,6 +95,7 @@ var/list/total_extraction_beacons = list()
 			A.loc = holder_obj.loc
 			qdel(holder_obj)
 			return
+
 /obj/machinery/extraction_point
 	name = "Balloon Extraction Beacon"
 	desc = "A beacon for the balloon extraction system. Hit a beacon with a pack to link the pack to a beacon."
@@ -103,6 +104,13 @@ var/list/total_extraction_beacons = list()
 	anchored = 1
 	density = 0
 	var/is_syndie = 0
+
+/obj/item/weapon/circuitboard/machine/extraction_point
+	name = "circuit board (Balloon Extraction Point)"
+	build_path = /obj/machinery/extraction_point
+	origin_tech = "programming=4"
+	req_components = list(
+							/obj/item/weapon/stock_parts/scanning_module = 1)
 
 /obj/machinery/extraction_point/syndicate
 	name = "syndicate balloon extraction point"
@@ -115,9 +123,8 @@ var/list/total_extraction_beacons = list()
 	if(!is_syndie)
 		normal_extraction_beacons += src
 	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/extraction_point(null)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(null)
+	var/obj/item/weapon/circuitboard/machine/B = new /obj/item/weapon/circuitboard/machine/extraction_point(null)
+	B.apply_default_parts(src)
 
 /obj/machinery/extraction_point/Destroy()
 	total_extraction_beacons -= src

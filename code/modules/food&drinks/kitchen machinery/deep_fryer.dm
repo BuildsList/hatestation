@@ -2,8 +2,6 @@
 
 
 
-
-
 /obj/machinery/cooking/deepfryer
 	name = "deep fryer"
 	desc = "A large deep fryer. Regular use may cause obesity."
@@ -35,13 +33,19 @@
 	create_reagents(100)
 	reagents.maximum_volume = 100
 	//reagents.add_reagent("cornoil", 100)
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/deepfryer(null)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(null)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(null)
-	component_parts += new /obj/item/stack/cable_coil(null, 2)
+	var/obj/item/weapon/circuitboard/machine/B = new /obj/item/weapon/circuitboard/machine/deepfryer(null)
+	B.apply_default_parts(src)
 	RefreshParts()
 	empty_icon()
+
+/obj/item/weapon/circuitboard/machine/deepfryer
+	name = "circuit board (Deep Fryer)"
+	build_path = /obj/machinery/cooking/deepfryer
+	origin_tech = "programming=1"
+	req_components = list(
+							/obj/item/weapon/stock_parts/micro_laser = 1,
+							/obj/item/stack/cable_coil = 2,
+							/obj/item/weapon/stock_parts/matter_bin = 1,)
 
 /obj/machinery/cooking/deepfryer/RefreshParts()
 	var/F = 1

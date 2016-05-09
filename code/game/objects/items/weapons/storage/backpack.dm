@@ -35,13 +35,8 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = "bluespace=4"
 	icon_state = "holdingpack"
-<<<<<<< HEAD
-	max_w_class = 5
-	max_combined_w_class = 70
-=======
 	max_w_class = 6
 	max_combined_w_class = 35
->>>>>>> refs/remotes/upstream/master
 	burn_state = FIRE_PROOF
 	var/pshoom = 'sound/items/PSHOOM.ogg'
 	var/alt_sound = 'sound/items/PSHOOM_2.ogg'

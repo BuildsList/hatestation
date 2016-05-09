@@ -22,7 +22,7 @@
 	build_path = /obj/item/device/firing_pin/implant/loyalty
 	category = list("Firing Pins")
 
-/datum/design/stunrevolver
+/datum/design/shockrevolver
 	name = "Tesla Revolver"
 	desc = "A high-tech revolver that fires internal, reusable shock cartridges in a revolving cylinder. The cartridges can be recharged using conventional rechargers."
 	id = "stunrevolver"
@@ -30,7 +30,26 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 10000, MAT_GLASS = 10000, MAT_SILVER = 10000)
 	build_path = /obj/item/weapon/gun/energy/shock_revolver
+	category = list("Weapons")
 
+/datum/design/laser_gun
+	name = "Laser Gun"
+	desc = "Standard laser gun"
+	id = "nuclear_gun"
+	req_tech = list("combat" = 4, "materials" = 5, "powerstorage" = 3)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 5000, MAT_GLASS = 1000, MAT_URANIUM = 2000)
+	build_path = /obj/item/weapon/gun/energy/laser
+	category = list("Weapons")
+
+/datum/design/combat_shotgun
+	name = "Combat shotgun"
+	desc = "Standard combat shotgun"
+	id = "nuclear_gun"
+	req_tech = list("combat" = 6, "materials" = 5)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 8000, MAT_GLASS = 3000)
+	build_path = /obj/item/weapon/gun/projectile/shotgun/automatic/combat
 	category = list("Weapons")
 
 /datum/design/nuclear_gun
@@ -68,7 +87,7 @@
 	name = "Decloner"
 	desc = "Your opponent will bubble into a messy pile of goop."
 	id = "decloner"
-	req_tech = list("combat" = 8, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
+	req_tech = list("combat" = 7, "materials" = 7, "biotech" = 5, "powerstorage" = 6)
 	build_type = PROTOLATHE
 	materials = list(MAT_GOLD = 5000,MAT_URANIUM = 10000)
 	reagents = list("mutagen" = 40)
@@ -126,6 +145,16 @@
 	materials = list(MAT_METAL = 3000)
 	reliability = 79
 	build_path = /obj/item/weapon/grenade/chem_grenade/large
+	category = list("Weapons")
+
+/datum/design/smg
+	name = "NanoTrasen Saber SMG"
+	desc = "A prototype advancment over the WT-550 auto rifle made using lightweight materials on a traditional frame, designed to fire standard 9mm rounds."
+	id = "smg"
+	req_tech = list("combat" = 4, "materials" = 3)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 8000, MAT_SILVER = 2000, MAT_DIAMOND = 1000)
+	build_path = /obj/item/weapon/gun/projectile/automatic/proto
 	category = list("Weapons")
 
 /datum/design/pyro_grenade
@@ -256,6 +285,39 @@
 	id = "mag_oldsmg_tx"
 	materials = list(MAT_METAL = 6000, MAT_SILVER = 600, MAT_URANIUM = 2000)
 	build_path = /obj/item/ammo_box/magazine/wt550m9/wttx
+
+//SABR Mags
+
+/datum/design/mag_smg
+	name = "SABR SMG Magazine (9mm)"
+	desc = "A 30-round magazine for the prototype submachine gun."
+	id = "mag_smg"
+	req_tech = list("combat" = 4, "materials" = 3)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 2000)
+	build_path = /obj/item/ammo_box/magazine/smgm9mm
+	category = list("Ammo")
+
+/datum/design/mag_smg/ap_mag
+	name = "SABR SMG Armour Piercing Magazine (9mmAP)"
+	desc = "A 30-round armour piercing magazine for the prototype submachine gun. Deals slightly less damage by bypasses most armour"
+	id = "mag_smg_ap"
+	materials = list(MAT_METAL = 3000, MAT_SILVER = 100)
+	build_path = /obj/item/ammo_box/magazine/smgm9mm/ap
+
+/datum/design/mag_smg/incin_mag
+	name = "SABR SMG Incendiary Magazine (9mmIC)"
+	desc = "A 30-round incindiary round magazine for the prototype submachine gun. Deals significanlty less damage but sets the target on fire"
+	id = "mag_smg_ic"
+	materials = list(MAT_METAL = 3000, MAT_SILVER = 100, MAT_GLASS = 400)
+	build_path = /obj/item/ammo_box/magazine/smgm9mm/fire
+
+/datum/design/mag_smg/incin_tox
+	name = "SABR SMG Urnaium Magazine (9mmTX)"
+	desc = "A 30-round urnaium tipped round magazine for the prototype submachine gun. Deals toxin damage, but less overall damage."
+	id = "mag_smg_tx"
+	materials = list(MAT_METAL = 3000, MAT_GLASS = 200, MAT_URANIUM = 1000)
+	build_path = /obj/item/ammo_box/magazine/smgm9mm/toxin
 
 /datum/design/stunshell
 	name = "Stun Shell"

@@ -271,10 +271,6 @@ var/list/advance_cures = 	list(
 	if(s)
 		AddSymptom(s)
 		Refresh(1)
-	//check for inert virus to remove it
-	for(var/symp in list_symptoms)
-		if(istype(symp, /datum/symptom/inert_virus))
-			RemoveSymptom(symp)
 	return
 
 // Randomly remove a symptom.

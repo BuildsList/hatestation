@@ -69,9 +69,9 @@ Note: Must be placed west/left of and R&D console to function.
 	var/A = materials.amount(M)
 	if(!A)
 		A = reagents.get_reagent_amount(M)
-		A = A / max(1, (being_built.reagents[M]))
+		A = A / max(1, (being_built.reagents[M]/efficiency_coeff))
 	else
-		A = A / max(1, (being_built.materials[M]))
+		A = A / max(1, (being_built.materials[M]/efficiency_coeff))
 	return A
 
 //we eject the materials upon deconstruction.

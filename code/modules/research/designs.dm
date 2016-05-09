@@ -183,7 +183,7 @@ other types of metals and chemistry for reagents).
 	id = "superaccelerator"
 	req_tech = list("materials" = 5, "powerstorage" = 4, "engineering" = 4, "magnets" = 4, "combat" = 3)
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 8000, MAT_GLASS = 1500, MAT_SILVER = 2000, MAT_URANIUM = 2000)
+	materials = list(MAT_METAL = 8000, MAT_GLASS = 1500, MAT_SILVER = 2000)
 	build_path = /obj/item/weapon/gun/energy/kinetic_accelerator/super
 	category = list("Mining Designs")
 

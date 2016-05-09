@@ -110,6 +110,16 @@
 //////////Cybernetic Implants////////////
 /////////////////////////////////////////
 
+/datum/design/cyberimp_auto
+	name = "Autoimplanter"
+	desc = "Syndicate tech that removes need for implant surgery"
+	id = "ci-auto"
+	req_tech = list("materials" = 7, "programming" = 5, "biotech" = 5, "magnets" = 5, "syndicate" = 4)
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(MAT_METAL = 200, MAT_GLASS = 200, MAT_GOLD = 500, MAT_URANIUM = 1000, MAT_DIAMOND = 2000)
+	build_path = /obj/item/device/autoimplanter
+
 /datum/design/cyberimp_welding
 	name = "Welding Shield implant"
 	desc = "These reactive micro-shields will protect you from welders and flashes without obscuring your vision."
@@ -169,7 +179,7 @@
 	name = "Thermals implant"
 	desc = "These cybernetic eyes will give you Thermal vision. Vertical slit pupil included."
 	id = "ci-thermals"
-	req_tech = list("materials" = 7, "programming" = 5, "biotech" = 5, "magnets" = 5, "syndicate" = 5)
+	req_tech = list("materials" = 7, "programming" = 5, "biotech" = 5, "magnets" = 5, "syndicate" = 4)
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(MAT_METAL = 200, MAT_GLASS = 200, MAT_SILVER = 600, MAT_GOLD = 600, MAT_PLASMA = 1000, MAT_DIAMOND = 2000)

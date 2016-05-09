@@ -339,7 +339,7 @@
 	req_tech = list("programming" = 1)
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, "sacid" = 20)
-	build_path = /obj/item/weapon/circuitboard/deepfryer
+	build_path = /obj/item/weapon/circuitboard/machine/deepfryer
 	category = list ("Misc. Machinery")
 
 /datum/design/gibber
@@ -359,7 +359,7 @@
 	req_tech = list("programming" = 6, "bluespace" = 6)
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, "sacid" = 20)
-	build_path = /obj/item/weapon/circuitboard/extraction_point
+	build_path = /obj/item/weapon/circuitboard/machine/extraction_point
 	category = list ("Misc. Machinery")
 
 /datum/design/smartfridge
