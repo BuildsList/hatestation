@@ -52,6 +52,20 @@
 		..()
 	return
 
+/mob/living/simple_animal/hostile/morph/med_hud_set_health()
+	if(morphed)
+		var/image/holder = hud_list[HEALTH_HUD]
+		holder.icon_state = null
+		return //we hide medical hud while morphed
+	..()
+
+/mob/living/simple_animal/hostile/morph/med_hud_set_status()
+	if(morphed)
+		var/image/holder = hud_list[STATUS_HUD]
+		holder.icon_state = null
+		return //we hide medical hud while morphed
+	..()
+
 /mob/living/simple_animal/hostile/morph/proc/allowed(atom/movable/A) // make it into property/proc ? not sure if worth it
 	if(istype(A,/obj/screen))
 		return 0
@@ -96,6 +110,8 @@
 	speed = 0
 
 	morph_time = world.time + MORPH_COOLDOWN
+	med_hud_set_health()
+	med_hud_set_status() //we're an object honest
 	return
 
 /mob/living/simple_animal/hostile/morph/proc/restore()
@@ -120,18 +136,22 @@
 	speed = initial(speed)
 
 	morph_time = world.time + MORPH_COOLDOWN
+	med_hud_set_health()
+	med_hud_set_status() //we are not an object
 
 /mob/living/simple_animal/hostile/morph/death(gibbed)
 	if(morphed)
 		visible_message("<span class='warning'>[src] twists and dissolves into a pile of green flesh!</span>", \
 						"<span class='userdanger'>Your skin ruptures! Your flesh breaks apart! No disguise can ward off de--</span>")
 		restore()
-	if(gibbed)
-		for(var/atom/movable/AM in src)
-			AM.loc = loc
-			if(prob(90))
-				step(AM, pick(alldirs))
-	..(gibbed)
+	..()
+
+/mob/living/simple_animal/hostile/morph/Destroy()
+	for(var/atom/movable/AM in src)
+		AM.loc = loc
+		if(prob(90))
+			step(AM, pick(alldirs))
+	return ..()
 
 /mob/living/simple_animal/hostile/morph/Aggro() // automated only
 	..()

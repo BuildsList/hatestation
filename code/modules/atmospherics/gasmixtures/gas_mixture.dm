@@ -401,45 +401,15 @@ var/list/gaslist_cache = null
 	return 1
 
 /datum/gas_mixture/parse_gas_string(gas_string)
-	#if DM_VERSION >= 510
-	//global so that we don't have to make them more than once
-	var/global/const/ID = 1
-	var/global/const/VALUE = 2
-	var/global/regex/R
-	if(!R)
-		R = regex("(\\w+?)\\=(\[^;]+)", "g")
-
-	var/list/cached_gases = gases
-	cached_gases.Cut() //clear the list to populate it later
-
-	while(R.next <= length(gas_string))
-		R.Find(gas_string)
-
-		var/id = R.group[ID]
-		if(id == "TEMP")
-			temperature = text2num(R.group[VALUE])
-			continue
+	var/list/gases = src.gases
+	var/list/gas = params2list(gas_string)
+	if(gas["TEMP"])
+		temperature = text2num(gas["TEMP"])
+		gas -= "TEMP"
+	gases.Cut()
+	for(var/id in gas)
 		add_gas(id)
-		cached_gases[id][MOLES] = text2num(R.group[VALUE])
-
-	R.next = 1 //reset it for the next call
-	#else
-	//fml
-	var/global/const/ID = 1
-	var/global/const/VALUE = 2
-
-	var/list/cached_gases = gases
-	cached_gases.Cut()
-
-	var/list/def = splittext(gas_string, ";")
-	for(var/d in def)
-		var/list/gas = splittext(d, "=")
-		if(gas[ID] == "TEMP")
-			temperature = text2num(gas[VALUE])
-			continue
-		add_gas(gas[ID])
-		cached_gases[gas[ID]][MOLES] = text2num(gas[VALUE])
-	#endif
+		gases[id][MOLES] = text2num(gas[id])
 	return 1
 
 /datum/gas_mixture/share(datum/gas_mixture/sharer, atmos_adjacent_turfs = 4)
@@ -521,7 +491,8 @@ var/list/gaslist_cache = null
 
 /datum/gas_mixture/temperature_share(datum/gas_mixture/sharer, conduction_coefficient, sharer_temperature, sharer_heat_capacity)
 	//transfer of thermal energy (via conduction) between self and sharer
-	sharer_temperature = sharer_temperature || sharer.temperature_archived
+	if(sharer)
+		sharer_temperature = sharer.temperature_archived
 	var/temperature_delta = temperature_archived - sharer_temperature
 	if(abs(temperature_delta) > MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER)
 		var/self_heat_capacity = heat_capacity_archived()
@@ -532,7 +503,7 @@ var/list/gaslist_cache = null
 				(self_heat_capacity*sharer_heat_capacity/(self_heat_capacity+sharer_heat_capacity))
 
 			temperature = max(temperature - heat/self_heat_capacity, TCMB)
-			sharer_temperature = max(sharer.temperature + heat/sharer_heat_capacity, TCMB)
+			sharer_temperature = max(sharer_temperature + heat/sharer_heat_capacity, TCMB)
 			if(sharer)
 				sharer.temperature = sharer_temperature
 	return sharer_temperature

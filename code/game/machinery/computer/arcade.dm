@@ -6,6 +6,7 @@
 	icon_screen = "invaders"
 	var/list/prizes = list(	/obj/item/weapon/storage/box/snappops					= 2,
 							/obj/item/toy/AI										= 2,
+							/obj/item/toy/codex_gigas								= 2,
 							/obj/item/clothing/under/syndicate/tacticool			= 2,
 							/obj/item/toy/sword										= 2,
 							/obj/item/toy/gun										= 2,
@@ -31,8 +32,8 @@
 							/obj/item/toy/carpplushie								= 2,
 							/obj/item/toy/foamblade									= 2,
 							/obj/item/toy/redbutton									= 2,
-							/obj/item/toy/owl										= 2,
-							/obj/item/toy/griffin									= 2,
+							/obj/item/toy/talking/owl								= 2,
+							/obj/item/toy/talking/griffin							= 2,
 							/obj/item/weapon/coin/antagtoken						= 2,
 							/obj/item/stack/tile/fakespace/loaded					= 2,
 							/obj/item/toy/toy_xeno									= 2,
@@ -44,12 +45,15 @@
 	// If it's a generic arcade machine, pick a random arcade
 	// circuit board for it and make the new machine
 	if(!circuit)
-		var/choice = pick(subtypesof(/obj/item/weapon/circuitboard/arcade))
+		var/choice = pick(subtypesof(/obj/item/weapon/circuitboard/computer/arcade))
 		var/obj/item/weapon/circuitboard/CB = new choice()
 		new CB.build_path(loc, CB)
 		qdel(src)
 
 /obj/machinery/computer/arcade/proc/prizevend()
+	if(prob(0.0001)) //1 in a million
+		new /obj/item/weapon/gun/energy/pulse(src)
+
 	if(!contents.len)
 		var/prizeselect = pickweight(prizes)
 		new prizeselect(src.loc)
@@ -90,7 +94,7 @@
 	name = "arcade machine"
 	desc = "Does not support Pinball."
 	icon_state = "arcade"
-	circuit = /obj/item/weapon/circuitboard/arcade/battle
+	circuit = /obj/item/weapon/circuitboard/computer/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
 	var/player_hp = 30 //Player health/attack points
@@ -324,7 +328,7 @@
 	name = "The Orion Trail"
 	desc = "Learn how our ancestors got to Orion, and have fun in the process!"
 	icon_state = "arcade"
-	circuit = /obj/item/weapon/circuitboard/arcade/orion_trail
+	circuit = /obj/item/weapon/circuitboard/computer/arcade/orion_trail
 	var/busy = 0 //prevent clickspam that allowed people to ~speedrun~ the game.
 	var/engine = 0
 	var/hull = 0

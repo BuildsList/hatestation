@@ -42,8 +42,9 @@
 	has_unlimited_silicon_privilege = 1
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 	staticOverlays = list()
+	hud_possible = list(DIAG_STAT_HUD, DIAG_HUD, ANTAG_HUD)
 	var/staticChoice = "static"
-	var/list/staticChoices = list("static", "blank", "letter")
+	var/list/staticChoices = list("static", "blank", "letter", "animal")
 	var/picked = FALSE //Have we picked our visual appearence (+ colour if applicable)
 	var/list/drone_overlays[DRONE_TOTAL_LAYERS]
 	var/laws = \
@@ -55,7 +56,7 @@
 	var/alarms = list("Atmosphere" = list(), "Fire" = list(), "Power" = list())
 	var/obj/item/internal_storage //Drones can store one item, of any size/type in their body
 	var/obj/item/head
-	var/obj/item/default_storage = /obj/item/weapon/storage/toolbox/drone //If this exists, it will spawn in internal storage
+	var/obj/item/default_storage = /obj/item/weapon/storage/backpack/dufflebag/drone //If this exists, it will spawn in internal storage
 	var/obj/item/default_hatmask //If this exists, it will spawn in the hat/mask slot if it can fit
 	var/seeStatic = 1 //Whether we see static instead of mobs
 	var/visualAppearence = MAINTDRONE //What we appear as
@@ -64,8 +65,8 @@
 
 /mob/living/simple_animal/drone/New()
 	..()
-
-	name = name + " ([rand(100,999)])"
+	if(name != initial(name))
+		name = name + " ([rand(100,999)])"
 	real_name = name
 
 	access_card = new /obj/item/weapon/card/id(src)
@@ -82,6 +83,25 @@
 	access_card.flags |= NODROP
 
 	alert_drones(DRONE_NET_CONNECT)
+
+	var/datum/action/generic/drone/select_filter/SF = new(src)
+	SF.Grant(src)
+	var/datum/atom_hud/data/diagnostic/diag_hud = huds[DATA_HUD_DIAGNOSTIC]
+	diag_hud.add_to_hud(src)
+
+
+/mob/living/simple_animal/drone/med_hud_set_health()
+	var/image/holder = hud_list[DIAG_HUD]
+	holder.icon_state = "huddiag[RoundDiagBar(health/maxHealth)]"
+
+/mob/living/simple_animal/drone/med_hud_set_status()
+	var/image/holder = hud_list[DIAG_STAT_HUD]
+	if(stat == DEAD)
+		holder.icon_state = "huddead2"
+	else if(incapacitated())
+		holder.icon_state = "hudoffline"
+	else
+		holder.icon_state = "hudstat"
 
 
 /mob/living/simple_animal/drone/Destroy()
@@ -242,4 +262,6 @@
 /mob/living/simple_animal/drone/fully_heal(admin_revive = 0)
 	adjustBruteLoss(-getBruteLoss()) //Heal all brute damage
 
-
+/mob/living/simple_animal/drone/bee_friendly()
+	// Why would bees pay attention to drones?
+	return 1

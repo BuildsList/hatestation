@@ -83,32 +83,6 @@
 		/obj/item/clothing/gloves/
 		)
 
-/obj/item/weapon/storage/belt/mining
-	name = "mining belt"
-	desc = "Can hold various mining equipment."
-	icon_state = "minerbelt"
-	item_state = "miner"
-	w_class = 5
-	max_combined_w_class = 28
-	can_hold = list(
-		/obj/item/weapon/crowbar,
-		/obj/item/weapon/reagent_containers/hypospray/medipen/stimpack,
-		/obj/item/device/t_scanner/adv_mining_scanner,
-		/obj/item/weapon/storage/bag/ore,
-		/obj/item/weapon/pickaxe,
-		/obj/item/weapon/shovel,
-		/obj/item/weapon/gun/energy/kinetic_accelerator,
-		/obj/item/weapon/gun/energy/plasmacutter,
-		/obj/item/clothing/glasses/meson,
-		/obj/item/weapon/survivalcapsule,
-		/obj/item/weapon/hivelordstabilizer,
-		/obj/item/device/wormhole_jaunter,
-		/obj/item/weapon/resonator,
-		/obj/item/weapon/lazarus_injector,
-		/obj/item/organ/internal/hivelord_core,
-		/obj/item/asteroid/goliath_hide,
-		/obj/item/asteroid/fugu_gland
-		)
 
 /obj/item/weapon/storage/belt/security
 	name = "security belt"
@@ -120,8 +94,7 @@
 	can_hold = list(
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/melee/classic_baton,
-		/obj/item/weapon/grenade/flashbang,
-		/obj/item/weapon/grenade/chem_grenade/teargas,
+		/obj/item/weapon/grenade,
 		/obj/item/weapon/reagent_containers/spray/pepper,
 		/obj/item/weapon/restraints/handcuffs,
 		/obj/item/device/assembly/flash/handheld,
@@ -145,19 +118,51 @@
 	new /obj/item/device/assembly/flash/handheld(src)
 	new /obj/item/weapon/melee/baton/loaded(src)
 
-/obj/item/weapon/storage/belt/bluespace
-	name = "Bluepspace belt"
-	desc = "A belt that opens into a localized pocket of Blue Space."
-	icon_state = "bluebelt"
-	item_state = "blueb"
-	origin_tech = "bluespace=4"
-	materials = list(MAT_GOLD=500)
+
+/obj/item/weapon/storage/belt/mining
+	name = "explorer belt"
+	desc = "A versatile belt, cherised by miners and hunters alike."
+	icon_state = "ebelt" //I'm doing this because I love you, syndicate son.
+	item_state = "ebelt"
+	storage_slots = 5
 	w_class = 4
-	max_combined_w_class = 42
-	cant_hold = list(
-		/obj/item/weapon/storage/belt/bluespace,
-		/obj/item/weapon/storage/backpack/holding
+	max_w_class = 4 //Pickaxes are big.
+	max_combined_w_class = 20 //Not an issue with this whitelist, probably.
+	can_hold = list(
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/wirecutters,
+		/obj/item/weapon/wrench,
+		/obj/item/device/flashlight,
+		/obj/item/stack/cable_coil,
+		/obj/item/device/analyzer,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/clothing/gloves,
+		/obj/item/weapon/resonator,
+		/obj/item/device/mining_scanner,
+		/obj/item/weapon/pickaxe,
+		/obj/item/stack/sheet/animalhide,
+		/obj/item/stack/sheet/sinew,
+		/obj/item/stack/sheet/bone,
+		/obj/item/weapon/lighter,
+		/obj/item/weapon/storage/fancy/cigarettes,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle,
+		/obj/item/stack/medical,
+		/obj/item/weapon/kitchen/knife,
+		/obj/item/weapon/reagent_containers/hypospray/medipen,
+		/obj/item/device/gps,
+		/obj/item/weapon/storage/bag/ore,
+		/obj/item/weapon/survivalcapsule,
+		/obj/item/device/t_scanner/adv_mining_scanner,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/ore/bluespace_crystal,
+		/obj/item/weapon/reagent_containers/food/drinks,
+
+
 		)
+
 
 /obj/item/weapon/storage/belt/soulstone
 	name = "soul stone belt"
@@ -190,6 +195,13 @@
 	desc = "A syndicate belt designed to be used by boarding parties.  Its style is modeled after the hardsuits they wear."
 	icon_state = "militarybelt"
 	item_state = "military"
+	max_w_class = 2
+
+/obj/item/weapon/storage/belt/military/army
+	name = "army belt"
+	desc = "A belt used by military forces."
+	icon_state = "grenadebeltold"
+	item_state = "security"
 
 /obj/item/weapon/storage/belt/military/assault
 	name = "assault belt"
@@ -201,9 +213,9 @@
 /obj/item/weapon/storage/belt/grenade
 	name = "grenadier belt"
 	desc = "A belt for holding grenades."
-	icon_state = "grenadebelt"
+	icon_state = "grenadebeltnew"
 	item_state = "security"
-	max_w_class = 0
+	max_w_class = 4
 	storage_slots = 30
 	can_hold = list(
 		/obj/item/weapon/grenade,
@@ -211,6 +223,7 @@
 		/obj/item/weapon/lighter,
 		/obj/item/device/multitool,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/molotov,
+		/obj/item/weapon/c4,
 		)
 /obj/item/weapon/storage/belt/grenade/full/New()
 	..()
@@ -274,7 +287,7 @@
 	storage_slots = 6
 	max_w_class = 4 // Set to this so the  light replacer can fit.
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade/cleaner,
+		/obj/item/weapon/grenade/chem_grenade,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/flashlight,
 		/obj/item/weapon/reagent_containers/spray,
@@ -289,7 +302,7 @@
 	desc = "A bandolier for holding shotgun ammunition."
 	icon_state = "bandolier"
 	item_state = "bandolier"
-	storage_slots = 8
+	storage_slots = 18
 	can_hold = list(
 		/obj/item/ammo_casing/shotgun
 		)

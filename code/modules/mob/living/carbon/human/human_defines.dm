@@ -1,3 +1,4 @@
+var/global/default_martial_art = new/datum/martial_art
 /mob/living/carbon/human
 	languages = HUMAN
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPCHEM_HUD,IMPTRACK_HUD,ANTAG_HUD)
@@ -45,8 +46,6 @@
 
 	var/blood_max = 0 //how much are we bleeding
 	var/bleedsuppress = 0 //for stopping bloodloss, eventually this will be limb-based like bleeding
-
-	var/list/organs = list() //Gets filled up in the constructor (human.dm, New() proc.
 
 	var/datum/martial_art/martial_art = null
 
