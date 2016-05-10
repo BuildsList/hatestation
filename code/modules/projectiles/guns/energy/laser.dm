@@ -76,7 +76,7 @@
 /obj/item/weapon/gun/energy/acclasercannon
 	name = "accelerator laser cannon"
 	desc = "An advanced laser cannon that does more damage the farther away the target is."
-	icon_state = "lasercannon"
+	icon_state = "acclasercannon"
 	item_state = "laser"
 	w_class = 4
 	force = 10
